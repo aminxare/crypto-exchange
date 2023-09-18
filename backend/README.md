@@ -1,73 +1,103 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+Creating a README for your NestJS cryptocurrency price tracking app is essential for providing users and collaborators with information about how to set up, use, and contribute to your project. Below is a sample README template that you can use as a starting point. Be sure to customize it with specific details about your project:
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Crypto Price Tracking App
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+The Crypto Price Tracking App is a NestJS-based backend application that allows you to fetch and store cryptocurrency prices in a MySQL database at regular intervals.
 
-## Description
+## Table of Contents
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Installation
+## Getting Started
+
+### Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Node.js and npm installed (Node.js version 14+ recommended)
+- MySQL database server installed and running
+- NestJS CLI installed (`npm install -g @nestjs/cli`)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/crypto-price-backend.git
+   cd crypto-price-backend
+   ```
+
+2. Install project dependencies:
+
+   ```bash
+   pnpm install
+   ```
+
+## Configuration
+
+1. Database Configuration:
+
+   - Create a MySQL database for the application.
+   - Configure the database connection by editing the `.env` file. Replace the placeholders with your database credentials.
+
+   ```env
+   DATABASE_HOST=localhost
+   DATABASE_PORT=3306
+   DATABASE_USERNAME=user
+   DATABASE_PASSWORD=pass
+   DATABASE_NAME=test
+   ```
+
+2. Environment Variables:
+
+   - Create a `.env` file to store environment-specific configuration. You can use `.env` for development and `.env.test` for testing. Example:
+
+   ```
+   DATABASE_URL=mysql://your_username:your_password@localhost:3306/crypto_prices
+   SECRET_KEY=your_secret_key
+   ```
+
+## Usage
+
+1. Start the application:
+
+   ```bash
+   npm run start
+   ```
+
+2. The application will start and periodically fetch cryptocurrency prices from an external source and store them in the MySQL database.
+
+3. You can access the API at `http://localhost:3000` (or your specified port) to retrieve cryptocurrency price data.
+
+## Testing
+
+To run tests, use the following command:
 
 ```bash
-$ pnpm install
+npm test
 ```
 
-## Running the app
+## Contributing
 
-```bash
-# development
-$ pnpm run start
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-# watch mode
-$ pnpm run start:dev
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature`.
+3. Commit your changes and push to your fork: `git commit -m "Add your feature" && git push origin feature/your-feature`.
+4. Open a pull request with a detailed description of your changes.
 
-# production mode
-$ pnpm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ pnpm run test
-
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Please ensure that your code passes linting and test checks before submitting a pull request.
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+Remember to replace placeholders like `your_username`, `your_password`, `your_secret_key`, and customize the README to match your project's specific details and needs.
