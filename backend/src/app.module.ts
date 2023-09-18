@@ -5,6 +5,7 @@ import { CryptoPriceModule } from './crypto-price/crypto-price.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { CryptoGateway } from './crypto/crypto.gateway';
 
 @Module({
   imports: [
@@ -23,6 +24,6 @@ import { ConfigModule } from '@nestjs/config';
     CryptoPriceModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, CryptoGateway],
 })
 export class AppModule {}

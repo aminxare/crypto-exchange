@@ -9,5 +9,6 @@ import { CryptoPrice } from './crypto-price.entity';
   imports: [TypeOrmModule.forFeature([CryptoPrice])],
   controllers: [CryptoPriceController],
   providers: [CryptoPriceService, CryptoPriceScheduler],
+  exports: [CryptoPriceService],
 })
 export class CryptoPriceModule {}

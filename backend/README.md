@@ -69,7 +69,7 @@ Before you begin, ensure you have met the following requirements:
 1. Start the application:
 
    ```bash
-   npm run start
+   pnpm start
    ```
 
 2. The application will start and periodically fetch cryptocurrency prices from an external source and store them in the MySQL database.
@@ -81,5 +81,5 @@ Before you begin, ensure you have met the following requirements:
 To run tests, use the following command:
 
 ```bash
-npm test
+pnpm test
 ```
