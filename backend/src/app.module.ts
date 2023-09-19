@@ -6,6 +6,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { CryptoGateway } from './crypto/crypto.gateway';
+import { CryptoModule } from './crypto/crypto.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { CryptoGateway } from './crypto/crypto.gateway';
     }),
     ScheduleModule.forRoot(),
     CryptoPriceModule,
+    CryptoModule,
   ],
   controllers: [AppController],
   providers: [AppService, CryptoGateway],

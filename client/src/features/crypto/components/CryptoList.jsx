@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import io from "socket.io-client";
+import React from "react";
 import {
   Container,
   Typography,
@@ -7,7 +6,6 @@ import {
   ListItem,
   ListItemText,
 } from "@mui/material";
-import { useSocket } from "../../../context/socket";
 import { usePrice } from "../context/price";
 
 const CryptoList = () => {
