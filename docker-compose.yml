@@ -1,0 +1,45 @@
+version: '3'
+services:
+  mariadb:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile-mariadb
+    ports:
+      - "3306:3306"  # Map the MariaDB port to the host machine (optional)
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: database_name
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_password
+    volumes:
+      - mariadb-data:/var/lib/mysql  # Persist MariaDB data (optional)
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile-backend
+    ports:
+      - "5000:5000"  # Map the NestJS backend port to the host machine
+    depends_on:
+      - mariadb  # Ensure the backend waits for MariaDB to be ready
+    environment:
+      DATABASE_HOST: mariadb
+      DATABASE_PORT: 3306
+      DATABASE_USERNAME: db_user
+      DATABASE_PASSWORD: db_password
+      DATABASE_NAME: database_name
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    environment:
+      REACT_APP_SOCKETIO_URL: http://localhost:5000
+      REACT_APP_HTTP_URL: http://localhost:5000
+    ports:
+      - "3000:3000"  # Map the React client port to the host machine
+    depends_on:
+      - backend  # Ensure the client waits for the backend to be ready
+
+volumes:
+  mariadb-data:
