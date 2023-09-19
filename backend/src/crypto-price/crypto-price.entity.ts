@@ -1,4 +1,4 @@
-import { Crypto } from 'src/crypto/crypto.entity';
+import { Crypto } from '../crypto/crypto.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 
 @Entity()

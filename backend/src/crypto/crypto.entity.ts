@@ -1,4 +1,4 @@
-import { CryptoPrice } from 'src/crypto-price/crypto-price.entity';
+import { CryptoPrice } from '../crypto-price/crypto-price.entity';
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()
