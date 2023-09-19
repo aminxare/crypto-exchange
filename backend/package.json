@@ -2,7 +2,11 @@
   "name": "backend",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "aminxare",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aminxare/crypto-exchange.git"
+  },
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

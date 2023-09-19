@@ -4,6 +4,7 @@ This is a simple cryptocurrency price tracker application with a backend built u
 
 ## docs
 - [Backend](./backend/README.md)
+- [Front](./client/README.md)
 
 ## Prerequisites
 
@@ -18,7 +19,7 @@ Before getting started, ensure you have the following prerequisites installed on
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/crypto-price-tracker.git
+   git clone https://github.com/aminxare/crypto-exchange.git
    ```
 
 2. Navigate to the project directory:
