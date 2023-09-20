@@ -1,31 +1,17 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { Crypto } from './crypto.entity';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import CreateCurrenyDto from './dtos/createCurrency.dto';
-import { BadRequestException } from '@nestjs/common/exceptions';
+import { CryptoService } from './crypto.service';
 
 @Controller('crypto')
 export class CryptoController {
-  constructor(
-    @InjectRepository(Crypto)
-    private readonly cryptoPriceRepository: Repository<Crypto>,
-  ) {}
+  constructor(private cryptoService: CryptoService) {}
 
   @Get()
   async getAllCurrencies() {
-    return await this.cryptoPriceRepository.find();
+    return await this.cryptoService.getAllCurrencies();
   }
 
   @Post()
-  async createCurrency(@Body() body: CreateCurrenyDto) {
-    const currency = await this.cryptoPriceRepository.findOne({
-      where: { name: body.name },
-    });
-
-    if (currency) {
-      throw new BadRequestException('currency already exists');
-    }
-    return await this.cryptoPriceRepository.save({ name: body.name });
+  async createCurrency(@Body('name') name: string) {
+    return await this.cryptoService.createCurrency(name);
   }
 }
