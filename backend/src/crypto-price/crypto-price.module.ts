@@ -4,9 +4,10 @@ import { CryptoPriceService } from './crypto-price.service';
 import { CryptoPriceScheduler } from './crypto-price.scheduler';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CryptoPrice } from './crypto-price.entity';
+import { CryptoModule } from 'src/crypto/crypto.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([CryptoPrice])],
+  imports: [TypeOrmModule.forFeature([CryptoPrice]), CryptoModule],
   controllers: [CryptoPriceController],
   providers: [CryptoPriceService, CryptoPriceScheduler],
   exports: [CryptoPriceService],

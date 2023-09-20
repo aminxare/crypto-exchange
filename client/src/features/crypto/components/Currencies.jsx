@@ -16,7 +16,7 @@ const CurrencyList = () => {
             <ListItemText
               primary={currency.name}
             />
-            <ListItemText primary={``} />
+            <ListItemText primary={`$${currency.price}`} />
           </ListItem>
         ))}
       </List>

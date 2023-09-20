@@ -6,21 +6,26 @@ import { Repository } from 'typeorm';
 export class CryptoService {
   constructor(
     @InjectRepository(Crypto)
-    private readonly cryptoPriceRepository: Repository<Crypto>,
+    private readonly cryptoRepository: Repository<Crypto>,
   ) {}
 
   async getAllCurrencies() {
-    return await this.cryptoPriceRepository.find();
+    const res: any = await this.cryptoRepository.find({
+      // relations: {
+      //   prices: true,
+      // },
+    });
+    return res;
   }
 
   async createCurrency(name: string) {
-    const currency = await this.cryptoPriceRepository.findOne({
+    const currency = await this.cryptoRepository.findOne({
       where: { name: name },
     });
 
     if (currency) {
       throw new BadRequestException('currency already exists');
     }
-    return await this.cryptoPriceRepository.save({ name: name });
+    return await this.cryptoRepository.save({ name: name });
   }
 }

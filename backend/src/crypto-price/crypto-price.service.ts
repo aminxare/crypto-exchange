@@ -31,4 +31,15 @@ export class CryptoPriceService extends EventEmitter {
       },
     });
   }
+
+  async getCoinPrice(coinName: string) {
+    return this.cryptoPriceRepository.findOne({
+      where: {
+        coin: coinName,
+      },
+      order: {
+        id: 'DESC',
+      },
+    });
+  }
 }

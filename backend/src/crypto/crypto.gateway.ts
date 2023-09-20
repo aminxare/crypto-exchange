@@ -20,14 +20,5 @@ export class CryptoGateway implements OnGatewayConnection {
     this.cryptoPriceService.on('newPrice', (cryptoPrice) => {
       client.emit('newPrice', cryptoPrice);
     });
-
-    // TODO: use pagination patern
-    this.cryptoPriceService.getAllCryptoPrices().then((cryptoPrices) => {
-      const payload = {
-        cryptoPrices,
-        page: 1,
-      };
-      client.emit('cryptoPrices', payload);
-    });
   }
 }

@@ -8,5 +8,6 @@ import { CryptoController } from './crypto.controller';
   imports: [TypeOrmModule.forFeature([Crypto])],
   controllers: [CryptoController],
   providers: [CryptoService],
+  exports: [CryptoService],
 })
 export class CryptoModule {}
